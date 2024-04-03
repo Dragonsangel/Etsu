@@ -1,0 +1,7 @@
+!Texture
+Id: 6a1bdb1b-fa76-42f4-80df-14b69d6a1f3d
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../Resources/FarBackground.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

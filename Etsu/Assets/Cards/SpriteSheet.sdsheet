@@ -1,0 +1,197 @@
+!SpriteSheet
+Id: edee5772-e75d-42fc-a3b0-a8ae0f8ce900
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Type: Sprite2D
+ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+Packing: {}
+Sprites:
+    642b06348327f843172fde9a182bd160:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Background
+        TextureRegion: {X: 0, Y: 0, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    ef66064ff1675cc4c0d6dbc892821fae:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Background_1_2
+        TextureRegion: {X: 128, Y: 0, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    2dd15a6c31c5c9a722b8cbb859430431:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Background_2_2
+        TextureRegion: {X: 256, Y: 0, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    719aa0b4fa6270d51bcbdc7766aca692:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Badger
+        TextureRegion: {X: 0, Y: 128, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    9dbae8e9f1cad566db247fa97e40a30e:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Badger_1_2
+        TextureRegion: {X: 128, Y: 128, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    31057be84f669ba1b86fa49104a3f87e:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Badger_2_2
+        TextureRegion: {X: 256, Y: 128, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    d8f7f321d0888b5f868a647d961e0049:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Beaver
+        TextureRegion: {X: 0, Y: 256, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    674b7ee55a00bd5bcb4cd022611aa7d0:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Beaver_1_2
+        TextureRegion: {X: 128, Y: 256, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    d9082cfddb8bfff3add382007ddbde0c:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Beaver_2_2
+        TextureRegion: {X: 256, Y: 256, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    fedca273c26dc8a4cf92b6bdad1efa7d:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Owl
+        TextureRegion: {X: 0, Y: 384, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    7af5192c97ac94f8f68449fab5ec4f7b:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Owl_1_2
+        TextureRegion: {X: 128, Y: 384, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    2cee112acf96eec5e2fea9f7e3f9c051:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Owl_2_2
+        TextureRegion: {X: 256, Y: 384, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    892ab26e1d845a5f383e5ccdefae0a4a:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Rabbit
+        TextureRegion: {X: 0, Y: 512, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    1a701f37bdaf02d47ea0ad9fb188e9f2:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Rabbit_1_2
+        TextureRegion: {X: 128, Y: 512, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    e2f5511a236d3c18806fff797869d376:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Rabbit_2_2
+        TextureRegion: {X: 256, Y: 512, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    57b2d01871b9289c608bdead2b5c47f0:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Racoon
+        TextureRegion: {X: 0, Y: 640, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    32f25568544b34f2690286c95a8d45bd:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Racoon_1_2
+        TextureRegion: {X: 128, Y: 640, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    47482eaa1bfddac872c123c31ce17964:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Racoon_2_2
+        TextureRegion: {X: 256, Y: 640, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    81e4bec6434618aa9e77fa7af5fa6943:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Squirrel01
+        TextureRegion: {X: 0, Y: 768, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    4034605c8f7f10177011fe95d32c2e50:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Squirrel01_1_2
+        TextureRegion: {X: 128, Y: 768, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    13160373387977b1f857ca552addd546:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Squirrel01_2_2
+        TextureRegion: {X: 256, Y: 768, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    c2b5bd16d9af5ae1b05fa630ac365fcf:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Squirrel02
+        TextureRegion: {X: 0, Y: 896, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    dc8f2f96bf5de4d199829b0fc56834bb:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Squirrel02_1_2
+        TextureRegion: {X: 128, Y: 896, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    349cd9d54bce563cb44e42d1e91aed8f:
+        Source: !file ../../Resources/CardSheets.png
+        Name: Squirrel02_2_2
+        TextureRegion: {X: 256, Y: 896, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    9166fefee4e4d563ef69e0eb5b0805a7:
+        Source: !file ../../Resources/CardSheets.png
+        Name: WildBoar
+        TextureRegion: {X: 0, Y: 1024, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    c507576c0cf093b0b02d19853aa8834b:
+        Source: !file ../../Resources/CardSheets.png
+        Name: WildBoar_1_2
+        TextureRegion: {X: 128, Y: 1024, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}
+    0cbe9febafc6221382406bbfc8b32dab:
+        Source: !file ../../Resources/CardSheets.png
+        Name: WildBoar_2_2
+        TextureRegion: {X: 256, Y: 1024, Width: 128, Height: 128}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}

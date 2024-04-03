@@ -1,0 +1,45 @@
+!SceneAsset
+Id: 99e64c11-761b-4454-b21a-80f551c909dd
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! ecf0d140-f2b5-4442-8b23-2b377edd667d
+        - ref!! ae0556bb-ea23-4ae7-b824-b98f0b667dbc
+    Parts:
+        -   Entity:
+                Id: ae0556bb-ea23-4ae7-b824-b98f0b667dbc
+                Name: FarBackground
+                Components:
+                    16c04d1dd3c9e42ed233570176878a0f: !TransformComponent
+                        Id: 451fcd51-2e90-4958-81d8-3a9a0ea531e4
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    89cd3a642804e24d893b3bc2acd9d5c4: !BackgroundComponent
+                        Id: 5237ef0a-6532-4105-ae2e-21549081ee17
+                        Texture: 6a1bdb1b-fa76-42f4-80df-14b69d6a1f3d:FarBackground
+                        Is2D: true
+        -   Entity:
+                Id: ecf0d140-f2b5-4442-8b23-2b377edd667d
+                Name: Camera
+                Components:
+                    f9ab34b8179254eb797135510ff613c7: !TransformComponent
+                        Id: 703af4c9-1078-4050-a140-de9776b132b3
+                        Position: {X: 0.0, Y: 0.0, Z: 5.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    fc5a8529865e76b87aec2ecaa7bee591: !CameraComponent
+                        Id: 8884bbf8-70cf-4ac3-8663-41179acbd9a0
+                        Name: null
+                        Projection: Orthographic
+                        OrthographicSize: 5.0
+                        FarClipPlane: 10.0
+                        Slot: 7796177e-9a0d-41c9-b8b2-2f5db7cb7236
+                    5fde041c8ba241c8287a7625932d942f: !Etsu.CardBehaviour,Etsu
+                        Id: 6fc4dd13-5fe0-448f-848e-93995a0bf53e
+                        CardBorderSprite: edee5772-e75d-42fc-a3b0-a8ae0f8ce900:Cards/SpriteSheet
