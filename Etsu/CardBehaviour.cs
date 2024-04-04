@@ -1,8 +1,10 @@
-﻿using Stride.Core.Mathematics;
+﻿using Stride.CommunityToolkit.Engine;
+using Stride.Core.Mathematics;
 using Stride.Engine;
 using Stride.Graphics;
 using Stride.Input;
 using Stride.Physics;
+using Stride.Rendering.ProceduralModels;
 using Stride.Rendering.Sprites;
 using System;
 using System.Collections.Generic;
@@ -40,16 +42,16 @@ public class CardBehaviour : SyncScript
             CardStorage.Cards = new()
             {
                 CreateCard(CalculatePosition(0, 0), spriteIndexes[0]),
-                //CreateCard(CalculatePosition(1, 0), spriteIndexes[1]),
-                //CreateCard(CalculatePosition(2, 0), spriteIndexes[2]),
-                //CreateCard(CalculatePosition(3, 0), spriteIndexes[3]),
-                //CreateCard(CalculatePosition(4, 0), spriteIndexes[4]),
+                CreateCard(CalculatePosition(1, 0), spriteIndexes[1]),
+                CreateCard(CalculatePosition(2, 0), spriteIndexes[2]),
+                CreateCard(CalculatePosition(3, 0), spriteIndexes[3]),
+                CreateCard(CalculatePosition(4, 0), spriteIndexes[4]),
 
-                //CreateCard(CalculatePosition(0, 1), spriteIndexes[5]),
-                //CreateCard(CalculatePosition(1, 1), spriteIndexes[6]),
-                //CreateCard(CalculatePosition(2, 1), spriteIndexes[7]),
-                //CreateCard(CalculatePosition(3, 1), spriteIndexes[8]),
-                //CreateCard(CalculatePosition(4, 1), spriteIndexes[9])
+                CreateCard(CalculatePosition(0, 1), spriteIndexes[5]),
+                CreateCard(CalculatePosition(1, 1), spriteIndexes[6]),
+                CreateCard(CalculatePosition(2, 1), spriteIndexes[7]),
+                CreateCard(CalculatePosition(3, 1), spriteIndexes[8]),
+                CreateCard(CalculatePosition(4, 1), spriteIndexes[9])
             };
 
             Vector3 CalculatePosition(float xIndex, float yIndex)
@@ -103,28 +105,25 @@ public class CardBehaviour : SyncScript
         location.Z = 0f;
 
         Entity cardContainer = new();
-
-        cardContainer.Transform.Scale *= 0f;
+        cardContainer.Transform.Scale *= 1f;
         cardContainer.Transform.Position = location;
-        
-        SpriteComponent cardBorderSprite = cardContainer.GetOrCreate<SpriteComponent>();
-        SpriteFromSheet spriteProvider = new SpriteFromSheet()
-        {
-            Sheet = CardBorderSprite
-        };
-        cardBorderSprite.SpriteProvider = spriteProvider;
-
-        //StaticColliderComponent staticCollider = cardContainer.GetOrCreate<StaticColliderComponent>();
-        //staticCollider.ColliderShape = new BoxColliderShape(true, new Vector3(10.28f, 10.28f, 1f));
 
         RigidbodyComponent rigidBody = cardContainer.GetOrCreate<RigidbodyComponent>();
         rigidBody.RigidBodyType = RigidBodyTypes.Kinematic;
-        rigidBody.ColliderShapes.Add(new BoxColliderShapeDesc
-        {
-            Is2D = true,
-            Size = new Vector3(1.28f, 1.28f, 1f)
-        });
+
+        rigidBody.ColliderShape = new BoxColliderShape(true, new Vector3(1.28f, 1.28f, 1f));
         rigidBody.CollisionGroup = CollisionFilterGroups.DefaultFilter;
+
+        Entity spriteChild = new("SpriteChild");
+        spriteChild.Transform.Scale *= 0f;
+        spriteChild.Transform.Position *= 0f;
+        SpriteComponent cardSpriteComponent = spriteChild.GetOrCreate<SpriteComponent>();
+        SpriteFromSheet spriteProvider = new()
+        {
+            Sheet = CardBorderSprite
+        };
+        cardSpriteComponent.SpriteProvider = spriteProvider;
+        cardContainer.AddChild(spriteChild);
 
         CardAction cardAction = cardContainer.GetOrCreate<CardAction>();
         cardAction.Card = new()
@@ -135,6 +134,8 @@ public class CardBehaviour : SyncScript
         };
         cardAction.SpriteSheet = spriteProvider;
         cardAction.Camera = camera;
+        cardAction.SpriteChild = spriteChild;
+
 
         Entity.Scene.Entities.Add(cardContainer);
 
