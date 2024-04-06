@@ -4,7 +4,6 @@ using Stride.Engine;
 using Stride.Input;
 using Stride.Physics;
 using Stride.Rendering.Sprites;
-using System;
 
 namespace Etsu
 {
@@ -15,7 +14,7 @@ namespace Etsu
         public SpriteFromSheet SpriteSheet { get; set; }
         public CameraComponent Camera { get; set; }
 
-        private float animationProgress = 0f;
+        private float animationProgressDuration = 0f;
         private bool animationBusy = false;
         private int animationCurrentSprite = 0;
         private CardAnimationDirection animationDirection;
@@ -85,34 +84,37 @@ namespace Etsu
         {
             float animationDuration = 0.2f;
             float spriteSwitchTime = animationDuration / 2f;
-            int totalFrames = 3;
 
-            animationProgress += Game.DeltaTime();
+            animationProgressDuration += Game.DeltaTime();
 
-            int fromSprite = animationDirection == CardAnimationDirection.FrontToBack ? Card.FrontSpriteStartIndex : Card.BackSpriteStartIndex;
             int toSprite = animationDirection == CardAnimationDirection.FrontToBack ? Card.BackSpriteStartIndex : Card.FrontSpriteStartIndex;
 
-            if (animationProgress <= spriteSwitchTime)
+            if (animationProgressDuration <= spriteSwitchTime)
             {
-                int currentFrameIndex = (int)Math.Floor(animationProgress / spriteSwitchTime * totalFrames);
-                animationCurrentSprite = fromSprite + currentFrameIndex;
+                float animationProgressPercent = (animationProgressDuration / spriteSwitchTime);
+                float animationProgressRadian = MathUtil.DegreesToRadians(90) * animationProgressPercent;
+                Entity.Transform.Rotation = Quaternion.RotationY(animationProgressRadian);
             }
-            else if (animationProgress < animationDuration)
+            else if (animationProgressDuration < animationDuration)
             {
-                float timeElapsedSecondHalf = animationProgress - spriteSwitchTime;
-                int currentFrameIndex = (int)Math.Floor(timeElapsedSecondHalf / spriteSwitchTime * totalFrames);
-                animationCurrentSprite = toSprite + (totalFrames - 1 - currentFrameIndex);
+                if (this.SpriteSheet.CurrentFrame != toSprite)
+                {
+                    this.SpriteSheet.CurrentFrame = toSprite;
+                }
+
+                float animationProgressPercent = (animationProgressDuration / animationDuration);
+                float animationProgressRadian = MathUtil.DegreesToRadians(180) * animationProgressPercent;
+                Entity.Transform.Rotation = Quaternion.RotationY(animationProgressRadian);
             }
 
-            if (animationProgress >= animationDuration)
+            if (animationProgressDuration >= animationDuration)
             {
                 animationDirection = CardAnimationDirection.None;
                 animationBusy = false;
-                animationProgress = 0f;
+                animationProgressDuration = 0f;
                 Card.IsFrontFacing = !Card.IsFrontFacing;
+                Entity.Transform.Rotation = Quaternion.RotationY(MathUtil.DegreesToRadians(180));
             }
-
-            this.SpriteSheet.CurrentFrame = animationCurrentSprite;
         }
     }
 }

@@ -1,10 +1,8 @@
-﻿using Stride.CommunityToolkit.Engine;
-using Stride.Core.Mathematics;
+﻿using Stride.Core.Mathematics;
 using Stride.Engine;
 using Stride.Graphics;
 using Stride.Input;
 using Stride.Physics;
-using Stride.Rendering.ProceduralModels;
 using Stride.Rendering.Sprites;
 using System;
 using System.Collections.Generic;
@@ -83,12 +81,10 @@ public class CardBehaviour : SyncScript
 
         for (int i = 1; i <= 5; i++)
         {
-            int nextIndex = rng.Next(3, CardBorderSprite.Sprites.Count);
-            nextIndex -= (nextIndex % 3);
+            int nextIndex = rng.Next(0, CardBorderSprite.Sprites.Count);
             while (spriteIndexes.Any(x => x == nextIndex))
             {
-                nextIndex = rng.Next(3, CardBorderSprite.Sprites.Count);
-                nextIndex -= (nextIndex % 3);
+                nextIndex = rng.Next(0, CardBorderSprite.Sprites.Count);
             }
 
             spriteIndexes.Add(nextIndex);
@@ -135,7 +131,6 @@ public class CardBehaviour : SyncScript
         cardAction.SpriteSheet = spriteProvider;
         cardAction.Camera = camera;
         cardAction.SpriteChild = spriteChild;
-
 
         Entity.Scene.Entities.Add(cardContainer);
 
