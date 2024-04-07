@@ -45,13 +45,14 @@ namespace Etsu
             {
                 AnimateCardSpawn();
             }
-            else if (!animationBusy && Input.IsMouseButtonPressed(MouseButton.Left))
+            else if (Card.IsPlayable && !animationBusy && Input.IsMouseButtonPressed(MouseButton.Left))
             {
                 HitResult hitResult = Camera.RaycastMouse(this);
                 if (hitResult.Succeeded)
                 {
                     if (hitResult.Collider.Entity == this.Entity)
                     {
+                        Card.IsPlayable = false;
                         animationCurrentSprite = Card.IsFrontFacing ? Card.FrontSpriteStartIndex : Card.BackSpriteStartIndex;
                         animationDirection = Card.IsFrontFacing ? CardAnimationDirection.FrontToBack : CardAnimationDirection.BackToFront;
                         animationBusy = true;
@@ -114,6 +115,12 @@ namespace Etsu
                 animationProgressDuration = 0f;
                 Card.IsFrontFacing = !Card.IsFrontFacing;
                 Entity.Transform.Rotation = Quaternion.RotationY(MathUtil.DegreesToRadians(180));
+                Card.IsPlayable = true;
+
+                if (Card.IsFrontFacing)
+                {
+                    CardStorage.CardShownEventKey.Broadcast();
+                }
             }
         }
     }

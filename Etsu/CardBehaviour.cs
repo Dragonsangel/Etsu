@@ -19,7 +19,7 @@ public class CardBehaviour : SyncScript
     public override void Start()
     {
         camera = Entity.Get<CameraComponent>();
-        CardStorage.Cards = new List<Entity>();
+        CardStorage.Cards = new();
     }
 
     public override void Update()
@@ -35,7 +35,7 @@ public class CardBehaviour : SyncScript
             float spacingY = viewport.Height / 2f;
             float paddingX = spacingX / 2f;
             float paddingY = spacingY / 2f;
-            List<int> spriteIndexes = GenerateShuffledSpriteIndexes();
+            List<(int index, string matchCriterium)> spriteIndexes = GenerateShuffledSpriteIndexes();
 
             CardStorage.Cards = new()
             {
@@ -74,21 +74,22 @@ public class CardBehaviour : SyncScript
         }
     }
 
-    private List<int> GenerateShuffledSpriteIndexes()
+    private List<(int index, string matchCriterium)> GenerateShuffledSpriteIndexes()
     {
-        List<int> spriteIndexes = new();
+        List<(int index, string matchCriterium)> spriteIndexes = new();
         Random rng = new((int)Game.UpdateTime.Elapsed.TotalSeconds);
 
         for (int i = 1; i <= 5; i++)
         {
             int nextIndex = rng.Next(0, CardBorderSprite.Sprites.Count);
-            while (spriteIndexes.Any(x => x == nextIndex))
+            while (spriteIndexes.Any(x => x.index == nextIndex))
             {
                 nextIndex = rng.Next(0, CardBorderSprite.Sprites.Count);
             }
 
-            spriteIndexes.Add(nextIndex);
-            spriteIndexes.Add(nextIndex);
+            string matchingCriterium = Guid.NewGuid().ToString();
+            spriteIndexes.Add((nextIndex, matchingCriterium));
+            spriteIndexes.Add((nextIndex, matchingCriterium));
         }
 
         ShuffleSprites(spriteIndexes);
@@ -96,7 +97,21 @@ public class CardBehaviour : SyncScript
         return spriteIndexes;
     }
 
-    private Entity CreateCard(Vector3 location, int spriteFrame)
+    private static void ShuffleSprites(List<(int index, string matchCriterium)> spriteIndexes)
+    {
+        Random rng = new(DateTime.Now.Millisecond);
+        int n = spriteIndexes.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            (int index, string matchCriterium) value = spriteIndexes[k];
+            spriteIndexes[k] = spriteIndexes[n];
+            spriteIndexes[n] = value;
+        }
+    }
+
+    private Entity CreateCard(Vector3 location, (int spriteFrame, string matchCriterium) cardDetails)
     {
         location.Z = 0f;
 
@@ -125,8 +140,11 @@ public class CardBehaviour : SyncScript
         cardAction.Card = new()
         {
             BackSpriteStartIndex = 0,
-            FrontSpriteStartIndex = spriteFrame,
-            IsFrontFacing = false
+            FrontSpriteStartIndex = cardDetails.spriteFrame,
+            IsFrontFacing = false,
+            IsPlayable = true,
+            IsMatched = false,
+            MatchingCriterium = cardDetails.matchCriterium
         };
         cardAction.SpriteSheet = spriteProvider;
         cardAction.Camera = camera;
@@ -135,19 +153,5 @@ public class CardBehaviour : SyncScript
         Entity.Scene.Entities.Add(cardContainer);
 
         return cardContainer;
-    }
-
-    private static void ShuffleSprites(List<int> spriteIndexes)
-    {
-        Random rng = new Random();
-        int n = spriteIndexes.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = rng.Next(n + 1);
-            int value = spriteIndexes[k];
-            spriteIndexes[k] = spriteIndexes[n];
-            spriteIndexes[n] = value;
-        }
     }
 }

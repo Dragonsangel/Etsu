@@ -43,3 +43,5 @@ Hierarchy:
                     5fde041c8ba241c8287a7625932d942f: !Etsu.CardBehaviour,Etsu
                         Id: 6fc4dd13-5fe0-448f-848e-93995a0bf53e
                         CardBorderSprite: edee5772-e75d-42fc-a3b0-a8ae0f8ce900:Cards/SpriteSheet
+                    1ca50e5bf32e92cb4c03e8ceed5a5dbe: !Etsu.CardShownEvent,Etsu
+                        Id: b5728c6e-b083-4dae-abb9-891d3f4e4a62
